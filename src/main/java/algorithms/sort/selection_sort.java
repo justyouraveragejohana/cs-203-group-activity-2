@@ -2,7 +2,7 @@ package algorithms.sort;
 
 public class selection_sort {
 
-    public static void SelectionSort( int[] A) {
+    public static void SelectionSort(int[] A) {
         //temp variables
         int min; // holds index of min/smallest partition
         int temp; // buffer var while swap is perfomred
