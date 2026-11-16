@@ -1,12 +1,12 @@
 package algorithms.search;
 
 public class sequential_search(int [] A, int k) {
-    public static long basicOpCount = 0
+    public static long count = 0
     int i = 0; //Scan Index
     //Sequential list scan: stop at list end or when key is found
-    basicOpCount = 0
+    count = 0
     while ((i < A.length) && (A[i] != k)) {
-    basicOpCount++; // Counts every failed comparison
+    count++; // Counts every failed comparison
     i++;
     }
         
