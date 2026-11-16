@@ -2,7 +2,7 @@ package algorithms.sort;
 
 public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
-    public static long basicOpCount = 0;
+    public static long count = 0;
     
      public static void sort(int[] arr) {
         int n = arr.length;
@@ -31,14 +31,14 @@ public class heap_sort {
 
         // Check if the left child exists within the heap bounds
         if (left < n) {
-            basicOpCount++; // Increment counter for the key comparison below
+            count++; // Increment counter for the key comparison below
             if (arr[left] > arr[largest]) {
                 largest = left;
             }
         }
         // Check if the right child exists within the heap bounds
         if (right < n) {
-            basicOpCount++; // Increment counter for the key comparison below
+            count++; // Increment counter for the key comparison below
             if (arr[right] > arr[largest]) {
                 largest = right;
             }
