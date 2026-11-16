@@ -1,7 +1,7 @@
 package algorithms.search;
 
 public class sequential_search(int [] A, int k) {
-    public static int basicOpCount = 0
+    public static long basicOpCount = 0
     int i = 0; //Scan Index
     //Sequential list scan: stop at list end or when key is found
     basicOpCount = 0
