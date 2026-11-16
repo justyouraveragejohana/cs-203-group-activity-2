@@ -2,7 +2,7 @@ package algorithms.sort;
 
 public class quick_sort {
       // Tracks the total number of key comparisons (basic operations)
-    public static long basicOpCount = 0;
+    public static long count = 0;
 
     /**
      * Sorts an array of integers in ascending order using Quick Sort.
@@ -10,7 +10,7 @@ public class quick_sort {
      * @param arr The array to be sorted
      */
     public static void sort(int[] arr) {
-        basicOpCount = 0; // Reset the counter before starting a new sort
+        count = 0; // Reset the counter before starting a new sort
         if (arr != null && arr.length > 1) {
             quickSort(arr, 0, arr.length - 1);
         }
@@ -49,7 +49,7 @@ public class quick_sort {
 
         // Compare each element in the subarray against the pivot
         for (int j = low; j < high; j++) {
-            basicOpCount++; // Increment counter for the key comparison below
+           count++; // Increment counter for the key comparison below
             if (arr[j] <= pivot) {
                 i++;
 
