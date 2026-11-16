@@ -2,7 +2,7 @@ package algorithms.sort;
 
 public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
-    public static int basicOpCount = 0;
+    public static long basicOpCount = 0;
     
      public static void sort(int[] arr) {
         int n = arr.length;
