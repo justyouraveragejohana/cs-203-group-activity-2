@@ -2,6 +2,10 @@ package algorithms.sort;
 
 public class selection_sort {
 
+    // counts basic operation (comparing two numbers)
+    // long rather than int because larger arrays can go past int limit
+    public static long count = 0;
+
     public static void SelectionSort(int[] A) {
         //temp variables
         int min; // holds index of min/smallest partition
@@ -13,6 +17,8 @@ public class selection_sort {
 
             // scan the rest of the array for a smaller partition
             for (int j = i+1; j < A.length; j++) {
+                count++; //counting comparison on the next line
+                
                 // checking if current number is smaller than the partition
                 if (A[j] < A[min]) {
                     min = j;
