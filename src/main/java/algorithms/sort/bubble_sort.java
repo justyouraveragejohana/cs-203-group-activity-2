@@ -1,7 +1,7 @@
 package algorithms.sort;
 
 public class bubble_sort(int [] A) {
-    public static long basicOpCount = 0;
+    public static long count = 0;
     // Loop to perform n-2 scans
     for (int i = 0; i < A.length - 1; i++) {
         // Bubble up items (partial scan)
@@ -14,7 +14,7 @@ public class bubble_sort(int [] A) {
                 A[j] = A[j+1];
                 A[j+1] = temp;
                 swapMade = true;// Update flag to track swaps made
-                basicOpCount++
+               count++
                     }
         }
         //If no swap is made, return early (list sorted)
