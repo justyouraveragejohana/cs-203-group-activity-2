@@ -1,7 +1,7 @@
 package algorithms.sort;
 
 public class bubble_sort(int [] A) {
-    public static int basicOpCount = 0;
+    public static long basicOpCount = 0;
     // Loop to perform n-2 scans
     for (int i = 0; i < A.length - 1; i++) {
         // Bubble up items (partial scan)
