@@ -2,6 +2,10 @@ package algorithms.sort;
 
 public class insertion_sort {
 
+    // counts the basic operation (comparing A[j] > val)
+    // long instead of int because larger arrays can go past int limit
+    public static long count = 0;
+
     public static void InsertionSort(int[] A) {
         int val = 0; // value we are trying to put in the correct spot
         int j = 0; // index walks backwards through sorted portion of array
@@ -13,6 +17,7 @@ public class insertion_sort {
 
             //move larger numbers one spot to the right to make room
             while ((j >= 0) && (A[j] > val)) {
+                count++; // comparison is true so we count it
                 A[j+1] = A[j]; // shift the larger number to the right
                 j = j-1; // move one spot to the left and check again
             }
