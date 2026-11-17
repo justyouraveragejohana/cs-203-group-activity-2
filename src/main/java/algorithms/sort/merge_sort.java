@@ -4,7 +4,7 @@ public class merge_sort {
 
     // counts the basic operation (comparing B[i] <= C[j] while merging)
     // long instead of int because larger arrays can go past int's limit
-    public static long count = 0;
+    public static long basicOpCount = 0;
     public double durationInMillis;
 
     // this will take two sorted arrays, B and C, and combines them into one sorted array, A
@@ -13,7 +13,7 @@ public class merge_sort {
 
         // this will keep going while both array B and C still have numbers left to be sorted??
         while ((i < B.length) && (j < C.length)) {
-            count++; // counting comparison on next line
+            basicOpCount++; // counting comparison on next line
             // whichever number is smaller goes into A next
             if (B[i] <= C[j]) {
                 A[k] = B[i];
