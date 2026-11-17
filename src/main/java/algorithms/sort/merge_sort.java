@@ -5,7 +5,7 @@ public class merge_sort {
     // counts the basic operation (comparing B[i] <= C[j] while merging)
     // long instead of int because larger arrays can go past int's limit
     public static long basicOpCount = 0;
-    public double durationInMillis;
+    public double durationInMillis = 0;
 
     // this will take two sorted arrays, B and C, and combines them into one sorted array, A
     public static void MergeSortedArrays(int[] A, int[] B, int[] C) {
