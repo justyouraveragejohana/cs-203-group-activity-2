@@ -3,7 +3,7 @@ package algorithms.sort;
 public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
      public static long basicOpCount = 0;
-     public double durationInMillis;
+     public double durationInMillis = 0;
      
        private static void heapify(int[] arr, int n, int i) {
         int largest = i;       // Assume the root is the largest element
