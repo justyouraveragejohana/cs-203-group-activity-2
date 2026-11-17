@@ -2,7 +2,7 @@ package algorithms.sort;
 
 public class bubble_sort(int [] A) {
     public double durationInMillis;
-    public static long count = 0;
+    public static long basicOpCount = 0;
     //Start time
     long startTime = System.nanoTime();
     // Loop to perform n-2 scans
@@ -17,7 +17,7 @@ public class bubble_sort(int [] A) {
                 A[j] = A[j+1];
                 A[j+1] = temp;
                 swapMade = true;// Update flag to track swaps made
-               count++
+               basicOpCount++
                     }
         }
         //If no swap is made, return early (list sorted)
