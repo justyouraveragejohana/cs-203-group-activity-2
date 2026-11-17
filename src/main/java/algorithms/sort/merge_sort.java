@@ -5,6 +5,7 @@ public class merge_sort {
     // counts the basic operation (comparing B[i] <= C[j] while merging)
     // long instead of int because larger arrays can go past int's limit
     public static long count = 0;
+    public double durationInMillis;
 
     // this will take two sorted arrays, B and C, and combines them into one sorted array, A
     public static void MergeSortedArrays(int[] A, int[] B, int[] C) {
@@ -35,6 +36,7 @@ public class merge_sort {
     }
 
     public static void MergeSort (int[] A) {
+        long startTime = System.nanoTime();
         if (A.length > 1) { //checking if there is more than one number, if not it's already sorted
             int h = (int) Math.floor(A.length / 2); // find the middle to split the array in half
 
@@ -52,5 +54,7 @@ public class merge_sort {
             MergeSortedArrays(B, C, A);
 
         }
+       long endTime = System.nanoTime();
+       this.durationInMillis = (endTime - startTime) / 1_000_000.0; 
     }
 }
