@@ -1,10 +1,12 @@
 package algorithms.search;
 
 public class sequential_search(int [] A, int k) {
-    public static long count = 0
+    public double durationInMillis = 0;
+    public static long basicOpCount = 0;
+     long startTime = System.nanoTime();
     int i = 0; //Scan Index
     //Sequential list scan: stop at list end or when key is found
-    count = 0
+    basicOpCount = 0;
     while ((i < A.length) && (A[i] != k)) {
     count++; // Counts every failed comparison
     i++;
@@ -12,9 +14,11 @@ public class sequential_search(int [] A, int k) {
         
     // If i < A.length, the loop stopped because A[i] != k was false (1 final comparison)
 if (i < A.length) {
-    count++; 
+    basicOpCount++; 
     return i;
     } else {
     return -1;
     }
+    long endTime = System.nanoTime();
+    this.durationInMillis = (endTime - startTime) / 1_000_000.0;
 }
