@@ -4,28 +4,7 @@ public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
      public static long count = 0;
      public double durationInMillis;
-     long startTime = System.nanoTime();
-     public static void sort(int[] arr) {
-        int n = arr.length;
-        basicOpCount = 0;
-         // Reset the counter before starting a new sort
-         
-         // Step 1: Build a max heap from the unsorted array
-        // Start from the last non-leaf node and move upwards to the root
-        for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(arr, n, i);
-        }
-         // Step 2: Extract elements from the heap one by one
-        for (int i = n - 1; i > 0; i--) {
-            // Move the current root (largest element) to the end of the array
-            int temp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = temp;
-            // Restore the max heap property on the remaining reduced heap
-            heapify(arr, i, 0);
-        }
-    }
-     private static void heapify(int[] arr, int n, int i) {
+       private static void heapify(int[] arr, int n, int i) {
         int largest = i;       // Assume the root is the largest element
         int left = 2 * i + 1;  // Calculate the index of the left child
         int right = 2 * i + 2; // Calculate the index of the right child
@@ -53,6 +32,31 @@ public class heap_sort {
             heapify(arr, n, largest);
         }
     }
-      long endTime = System.nanoTime();
+     
+     public static void sort(int[] arr) {
+        long startTime = System.nanoTime();
+        int n = arr.length;
+        basicOpCount = 0;
+         // Reset the counter before starting a new sort
+         
+         // Step 1: Build a max heap from the unsorted array
+        // Start from the last non-leaf node and move upwards to the root
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+         // Step 2: Extract elements from the heap one by one
+        for (int i = n - 1; i > 0; i--) {
+            // Move the current root (largest element) to the end of the array
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            // Restore the max heap property on the remaining reduced heap
+            heapify(arr, i, 0);
+        }
+       long endTime = System.nanoTime();
       this.durationInMillis = (endTime - startTime) / 1_000_000.0;
+    }
+     
+   
+     
 }
