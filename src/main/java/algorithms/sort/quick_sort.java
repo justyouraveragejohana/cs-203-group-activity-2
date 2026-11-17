@@ -2,39 +2,12 @@ package algorithms.sort;
 
 public class quick_sort {
       // Tracks the total number of key comparisons (basic operations)
-    public static long count = 0;
+    public static long basicOpCount = 0;
+    public double durationInMillis = 0;  
 
-    /**
-     * Sorts an array of integers in ascending order using Quick Sort.
-     *
-     * @param arr The array to be sorted
-     */
-    public static void sort(int[] arr) {
-        count = 0; // Reset the counter before starting a new sort
-        if (arr != null && arr.length > 1) {
-            quickSort(arr, 0, arr.length - 1);
-        }
-    }
 
-    /**
-     * Recursively partitions the array and sorts the subarrays.
-     *
-     * @param arr  The array being sorted
-     * @param low  The starting index of the current subarray
-     * @param high The ending index of the current subarray
-     */
-    private static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            // Partition the array and get the pivot's final sorted index
-            int pivotIndex = partition(arr, low, high);
 
-            // Recursively sort elements before and after the pivot
-            quickSort(arr, low, pivotIndex - 1);
-            quickSort(arr, pivotIndex + 1, high);
-        }
-    }
-
-    /**
+        /**
      * Places the pivot element at its correct position and moves all smaller
      * elements to its left and larger elements to its right (Lomuto partition).
      *
@@ -67,4 +40,44 @@ public class quick_sort {
 
         return i + 1; // Return the pivot index
     }
+
+
+
+
+      
+    /**
+     * Sorts an array of integers in ascending order using Quick Sort.
+     *
+     * @param arr The array to be sorted
+     */
+    public static void sort(int[] arr) {
+      long startTime = System.nanoTime();
+        basicOpCount = 0; // Reset the counter before starting a new sort
+        if (arr != null && arr.length > 1) {
+            quickSort(arr, 0, arr.length - 1);
+        }
+      long endTime = System.nanoTime();
+      this.durationInMillis = (endTime - startTime) / 1_000_000.0;
+    }
+
+    /**
+     * Recursively partitions the array and sorts the subarrays.
+     *
+     * @param arr  The array being sorted
+     * @param low  The starting index of the current subarray
+     * @param high The ending index of the current subarray
+     */
+    private static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            // Partition the array and get the pivot's final sorted index
+            int pivotIndex = partition(arr, low, high);
+
+            // Recursively sort elements before and after the pivot
+            quickSort(arr, low, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, high);
+        }
+       
+    }
+
+  
 }
