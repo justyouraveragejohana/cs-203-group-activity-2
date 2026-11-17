@@ -1,7 +1,7 @@
 package algorithms.sort;
 
 public class bubble_sort(int [] A) {
-    public double durationInMillis;
+    public double durationInMillis = 0;
     public static long basicOpCount = 0;
     //Start time
     long startTime = System.nanoTime();
