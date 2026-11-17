@@ -2,8 +2,9 @@ package algorithms.sort;
 
 public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
-     public static long count = 0;
+     public static long basicOpCount = 0;
      public double durationInMillis;
+     
        private static void heapify(int[] arr, int n, int i) {
         int largest = i;       // Assume the root is the largest element
         int left = 2 * i + 1;  // Calculate the index of the left child
@@ -11,14 +12,14 @@ public class heap_sort {
 
         // Check if the left child exists within the heap bounds
         if (left < n) {
-            count++; // Increment counter for the key comparison below
+            basicOpCount++; // Increment counter for the key comparison below
             if (arr[left] > arr[largest]) {
                 largest = left;
             }
         }
         // Check if the right child exists within the heap bounds
         if (right < n) {
-            count++; // Increment counter for the key comparison below
+            basicOpCount++; // Increment counter for the key comparison below
             if (arr[right] > arr[largest]) {
                 largest = right;
             }
@@ -54,7 +55,7 @@ public class heap_sort {
             heapify(arr, i, 0);
         }
        long endTime = System.nanoTime();
-      this.durationInMillis = (endTime - startTime) / 1_000_000.0;
+       this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
      
    
