@@ -22,7 +22,7 @@ public class quick_sort {
 
         // Compare each element in the subarray against the pivot
         for (int j = low; j < high; j++) {
-           count++; // Increment counter for the key comparison below
+           basicOpCount++; // Increment counter for the key comparison below
             if (arr[j] <= pivot) {
                 i++;
 
