@@ -5,8 +5,10 @@ public class insertion_sort {
     // counts the basic operation (comparing A[j] > val)
     // long instead of int because larger arrays can go past int limit
     public static long count = 0;
-
+    public double durationInMillis;
+    
     public static void InsertionSort(int[] A) {
+        long startTime = System.nanoTime();
         int val = 0; // value we are trying to put in the correct spot
         int j = 0; // index walks backwards through sorted portion of array
 
@@ -23,6 +25,8 @@ public class insertion_sort {
             }
             A[j+1] = val; // put the number in the open spot
         }
+        long startTime = System.nanoTime();
+        this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
     
 }
