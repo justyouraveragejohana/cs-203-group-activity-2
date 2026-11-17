@@ -1,7 +1,10 @@
 package algorithms.sort;
 
 public class bubble_sort(int [] A) {
+    public double durationInMillis;
     public static long count = 0;
+    //Start time
+    long startTime = System.nanoTime();
     // Loop to perform n-2 scans
     for (int i = 0; i < A.length - 1; i++) {
         // Bubble up items (partial scan)
@@ -20,5 +23,7 @@ public class bubble_sort(int [] A) {
         //If no swap is made, return early (list sorted)
         if(!swapMade) {return}
     }
+     long endTime = System.nanoTime();
+     this.durationInMillis = (endTime - startTime) / 1_000_000.0;
         
 }
