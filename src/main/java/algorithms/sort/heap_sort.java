@@ -2,8 +2,9 @@ package algorithms.sort;
 
 public class heap_sort {
      // Tracks the total number of key comparisons (basic operations)
-    public static long count = 0;
-    
+     public static long count = 0;
+     public double durationInMillis;
+     long startTime = System.nanoTime();
      public static void sort(int[] arr) {
         int n = arr.length;
         basicOpCount = 0;
@@ -52,4 +53,6 @@ public class heap_sort {
             heapify(arr, n, largest);
         }
     }
+      long endTime = System.nanoTime();
+      this.durationInMillis = (endTime - startTime) / 1_000_000.0;
 }
