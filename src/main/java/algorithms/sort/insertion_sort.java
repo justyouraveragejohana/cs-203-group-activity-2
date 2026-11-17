@@ -5,7 +5,7 @@ public class insertion_sort {
     // counts the basic operation (comparing A[j] > val)
     // long instead of int because larger arrays can go past int limit
     public static long basicOpCount = 0;
-    public double durationInMillis;
+    public double durationInMillis = 0;
     
     public static void InsertionSort(int[] A) {
         long startTime = System.nanoTime();
