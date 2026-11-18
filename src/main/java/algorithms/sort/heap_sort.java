@@ -34,7 +34,7 @@ public class heap_sort {
         }
     }
      
-     public static void sort(int[] arr) {
+     public void sort(int[] arr) {
         long startTime = System.nanoTime();
         int n = arr.length;
         basicOpCount = 0;
@@ -54,8 +54,8 @@ public class heap_sort {
             // Restore the max heap property on the remaining reduced heap
             heapify(arr, i, 0);
         }
-       long endTime = System.nanoTime();
-       this.durationInMillis = (endTime - startTime) / 1_000_000.0;
+    long endTime = System.nanoTime();
+    this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
      
    

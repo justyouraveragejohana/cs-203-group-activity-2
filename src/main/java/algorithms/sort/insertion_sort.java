@@ -7,8 +7,9 @@ public class insertion_sort {
     public static long basicOpCount = 0;
     public double durationInMillis = 0;
     
-    public static void InsertionSort(int[] A) {
+    public void InsertionSort(int[] A) {
         long startTime = System.nanoTime();
+        basicOpCount = 0;
         int val = 0; // value we are trying to put in the correct spot
         int j = 0; // index walks backward through sorted portion of array
 
@@ -25,7 +26,7 @@ public class insertion_sort {
             }
             A[j+1] = val; // put the number in the open spot
         }
-        long startTime = System.nanoTime();
+        long endTime = System.nanoTime();
         this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
     

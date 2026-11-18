@@ -7,7 +7,7 @@ public class selection_sort {
     public static long basicOpCount = 0;
     public double durationInMillis = 0;
 
-    public static void SelectionSort(int[] A) {
+    public void SelectionSort(int[] A) {
         long startTime = System.nanoTime();
         //temp variables
         int min; // holds index of min/smallest partition

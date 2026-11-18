@@ -50,7 +50,7 @@ public class quick_sort {
      *
      * @param arr The array to be sorted
      */
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
       long startTime = System.nanoTime();
         basicOpCount = 0; // Reset the counter before starting a new sort
         if (arr != null && arr.length > 1) {
