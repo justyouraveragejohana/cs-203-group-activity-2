@@ -37,6 +37,13 @@ public class merge_sort {
 
     public void MergeSort (int[] A) {
         long startTime = System.nanoTime();
+        basicOpCount = 0;
+        mergeSort(A);
+        long endTime = System.nanoTime();
+        this.durationInMillis = (endTime - startTime) / 1_000_000.0;
+    }
+
+    private void mergeSort(int[] A) {
         if (A.length > 1) { //checking if there is more than one number, if not it's already sorted
             int h = (int) Math.floor(A.length / 2); // find the middle to split the array in half
 
@@ -47,14 +54,12 @@ public class merge_sort {
             System.arraycopy(A, h, C, 0, A.length - h);
 
             // sort each half of array the same way. It'll keep splitting until they are left with 1 number
-            this.MergeSort(B);
-            this.MergeSort(C);
+            mergeSort(B);
+            mergeSort(C);
 
             // combine the two sorted halves back into A
-            MergeSortedArrays(B, C, A);
+            MergeSortedArrays(A, B, C);
 
         }
-    long endTime = System.nanoTime();
-    this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
 }

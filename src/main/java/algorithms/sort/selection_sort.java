@@ -9,6 +9,7 @@ public class selection_sort {
 
     public void SelectionSort(int[] A) {
         long startTime = System.nanoTime();
+        basicOpCount = 0;
         //temp variables
         int min; // holds index of min/smallest partition
         int temp; // buffer var while swap is performed

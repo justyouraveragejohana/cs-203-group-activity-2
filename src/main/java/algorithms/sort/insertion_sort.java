@@ -19,8 +19,11 @@ public class insertion_sort {
             j = i-1; // start checking from the number before it
 
             //move larger numbers one spot to the right to make room
-            while ((j >= 0) && (A[j] > val)) {
-                basicOpCount++; // comparison is true so we count it
+            while (j >= 0) {
+                basicOpCount++; // Count each comparison with an array value
+                if (A[j] <= val) {
+                    break;
+                }
                 A[j+1] = A[j]; // shift the larger number to the right
                 j = j-1; // move one spot to the left and check again
             }
