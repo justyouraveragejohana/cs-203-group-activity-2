@@ -9,8 +9,10 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+/** Creates user-named text files containing random integer data. */
 public class RandomNumberFileGenerator {
     private static final int MAX_SIZE = 1_000_000;
+    // nextInt uses an exclusive upper bound, so this generates values from 0 through 10.
     private static final int MAX_RANDOM_NUMBER = 10;
 
     public static void main(String[] args) {
@@ -37,6 +39,7 @@ public class RandomNumberFileGenerator {
         }
     }
 
+    /** Writes the requested count to a working-directory file, adding .txt when needed. */
     public static Path generateFile(int size, String fileName) throws IOException {
         if (size < 0 || size > MAX_SIZE) {
             throw new IllegalArgumentException("Size must be between 0 and " + MAX_SIZE + ".");
