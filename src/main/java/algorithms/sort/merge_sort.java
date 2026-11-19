@@ -5,7 +5,7 @@ public class merge_sort {
     // counts the basic operation (comparing B[i] <= C[j] while merging)
     // long instead of int because larger arrays can go past int's limit
     public static long basicOpCount = 0;
-    public static double durationInMillis = 0;
+    public double durationInMillis = 0;
 
     // this will take two sorted arrays, B and C, and combines them into one sorted array, A
     public static void MergeSortedArrays(int[] A, int[] B, int[] C) {
@@ -36,7 +36,7 @@ public class merge_sort {
         }
     }
 
-    public static void MergeSort (int[] A) {
+    public void MergeSort (int[] A) {
         long startTime = System.nanoTime();
         basicOpCount = 0; // reset here instead of in sortHalves since sortHalvves calls itself
         sortHalves(A);
