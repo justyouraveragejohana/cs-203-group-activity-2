@@ -1,4 +1,5 @@
-package data;
+package data.reader;
+
 
 import java.io.BufferedWriter;
 import java.io.IOException;

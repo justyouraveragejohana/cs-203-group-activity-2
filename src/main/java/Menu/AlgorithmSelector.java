@@ -1,4 +1,4 @@
-package Menu;
+package menu;
 
 import algorithms.search.binary_search;
 import algorithms.search.sequential_search;

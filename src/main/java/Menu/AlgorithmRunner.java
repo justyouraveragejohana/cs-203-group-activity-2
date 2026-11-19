@@ -1,4 +1,4 @@
-package Menu;
+package menu;
 
 import java.io.IOException;
 import java.util.Scanner;
