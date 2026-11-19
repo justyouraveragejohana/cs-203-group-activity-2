@@ -1,10 +1,11 @@
-package data;
+package data.excel;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
@@ -27,6 +28,7 @@ public class excel_data {
 
    // adds run to excel file
    // positionOfK is "N/A" for sorting runs
+   // input and sorted file are the full paths to the files so they are clickable links
    public static void saveRun (int inputSize, String sortOrSearch, String alg, 
                               String inputFile, String positionOfK, long basicOps, 
                               double runtime, String sortedFile) {
@@ -54,17 +56,18 @@ public class excel_data {
          int rowNum = sheet.getLastRowNum() + 1;
          XSSFRow row = sheet.createRow(rowNum);
          XSSFCellStyle style = makeRowStyle(workbook);
+         XSSFCellStyle linkStyle = makeLinkStyle(workbook);
 
          // assigning columns/rows to their data
          setNumber(row, 0, rowNum, style);
          setNumber(row, 1, inputSize, style);
          setText(row, 2, sortOrSearch, style);
          setText(row, 3, alg, style);
-         setText(row, 4, inputFile, style);
+         setLink(workbook, row, 4, inputFile, style, linkStyle);
          setText(row, 5, positionOfK, style);
          setNumber(row, 6, basicOps, style);
          setNumber(row, 7, runtime, style);
-         setText(row, 8, sortedFile, style);
+         setLink(workbook, row, 8, sortedFile, style, linkStyle);
 
          //save file again with all the old rows plus the new one
          FileOutputStream out = new FileOutputStream(file);
@@ -119,6 +122,17 @@ public class excel_data {
       return style;
    }
 
+   // blue underlined words so it looks like a clickable link
+   private static XSSFCellStyle makeLinkStyle(XSSFWorkbook workbook) {
+      XSSFFont font = workbook.createFont();
+      font.setUnderline(Font.U_SINGLE);
+      font.setColor(makeColor(0x05, 0x63, 0xC1)); // blue excel link
+
+      XSSFCellStyle style = makeRowStyle(workbook);
+      style.setFont(font);
+      return style;
+   }
+
    // makes rgb/color hex understandable for excel
    private static XSSFColor makeColor (int r, int g, int b) {
       byte[] rgb = {(byte) r, (byte) g, (byte) b};
@@ -138,4 +152,26 @@ public class excel_data {
       cell.setCellValue(value);
       cell.setCellStyle(style);
    }
+
+   // shows file name in a cell and makes it a link that opens the file
+   private static void setLink (XSSFWorkbook workbook, XSSFRow row, int col, 
+                                 String path, XSSFCellStyle style, XSSFCellStyle linkStyle) {
+      File linkedFile = new File(path);
+
+      // checking if the file is real, if not just put the words in (ex. N/A)
+      if (!linkedFile.exists()) {
+         setText(row, col, path, style);
+         return;
+      }
+
+      // only show the file name in the cell
+      XSSFCell cell = row.createCell(col);
+      cell.setCellValue(linkedFile.getName());
+      cell.setCellStyle(linkStyle);
+
+      // link points to where the file lives on users computer
+      XSSFHyperlink link = workbook.getCreationHelper().createHyperlink(HyperlinkType.FILE);
+      link.setAddress(linkedFile.toURI().toString());
+      cell.setHyperlink(link);
+      }
 }

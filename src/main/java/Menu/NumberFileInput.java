@@ -1,14 +1,17 @@
-package Menu;
+package menu;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-import data.NumberFileReader;
-import data.RandomNumberFileGenerator;
+import data.reader.NumberFileReader;
+import data.generator.RandomNumberFileGenerator;
 
 /** Prompts for either a generated numbers file or an existing file. */
 final class NumberFileInput {
+    // name of the input file so it can be saved in the excel sheet
+    static String filePath = "";
+
     private NumberFileInput() {
     }
 
@@ -35,6 +38,9 @@ final class NumberFileInput {
         } else {
             throw new IllegalArgumentException("Choice must be 1 or 2.");
         }
+
+        // saving just the file name for the excel sheet
+        filePath = file.toAbsolutePath().toString();
 
         return NumberFileReader.readNumbers(file);
     }

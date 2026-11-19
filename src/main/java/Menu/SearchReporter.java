@@ -1,4 +1,4 @@
-package Menu;
+package menu;
 
 /** Reports a search result, its position, duration, and operation count. */
 final class SearchReporter {
