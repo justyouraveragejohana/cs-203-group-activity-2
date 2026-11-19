@@ -56,7 +56,8 @@ public class RandomNumberFileGenerator {
         if (!outputName.toLowerCase(Locale.ROOT).endsWith(".txt")) {
             outputName += ".txt";
         }
-        Path outputFile = Path.of(outputName);
+        // saving the input file in the user's downloads folder
+        Path outputFile = Path.of(System.getProperty("user.home"), "Downloads", outputName);
 
         try (BufferedWriter writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8)) {
             for (int i = 0; i < size; i++) {

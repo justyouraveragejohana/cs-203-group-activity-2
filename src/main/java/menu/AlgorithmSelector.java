@@ -30,17 +30,9 @@ final class AlgorithmSelector {
         System.out.println("6. Selection sort");
         System.out.println("7. Sequential search");
         System.out.println("8. Binary search");
-        System.out.print("Enter a choice (1-8): ");
-        if (!scanner.hasNextInt()) {
-            System.err.println("Please enter a number from 1 to 8.");
-            return;
-        }
-
-        int choice = scanner.nextInt();
-        if (choice < 1 || choice > 8) {
-            System.err.println("Choice must be from 1 to 8.");
-            return;
-        }
+        
+        // keeps asking until the type a number from 1 to 8
+        int choice = menu_input.readNumber(scanner, "Enter a choice (1-8): ", 1, 8);
 
         if (choice >= 7) {
             runSelectedSearch(originalNumbers, scanner, choice == 8);
@@ -52,12 +44,9 @@ final class AlgorithmSelector {
     // Reads the target and runs the selected search algorithm.
     private static void runSelectedSearch(
             int[] originalNumbers, Scanner scanner, boolean useBinarySearch) {
-        System.out.print("Enter the number to search for: ");
-        if (!scanner.hasNextInt()) {
-            System.err.println("Please enter a 32-bit integer.");
-            return;
-        }
-        runSearch(originalNumbers, scanner.nextInt(), useBinarySearch);
+        // keeps asking until they enter a whole number
+        int target = menu_input.readAnyNumber(scanner, "Enter the number to search for: ");
+        runSearch(originalNumbers, target, useBinarySearch);
     }
 
     // Dispatches the selected sorting algorithm. */
