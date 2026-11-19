@@ -12,7 +12,7 @@ public class AlgorithmRunner {
             try {
                 numbers = NumberFileInput.loadNumbers(scanner);
             } catch (IOException | IllegalArgumentException exception) {
-                System.err.println("Could not prepare numbers file: " + exception.getMessage());
+                System.err.println("Could not prepare input file: " + exception.getMessage());
                 return;
             }
 
