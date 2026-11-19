@@ -14,13 +14,13 @@ public class excel_data {
 
    // finds the persons downloads folder and save the excel there
    public static final String FOLDER = System.getProperty("user.home") + File.separator + "Downloads";
-   public static final String FILE_NAME = "algorithm-results.xslx";
+   public static final String FILE_NAME = "algorithm-results.xlsx";
 
    // column names for the header row
    private static final String[] HEADERS = {
       "Run", "Input Size", "Sort or Search", "Algorithm", "Input File Name", 
       "Position of k (Search Only)", "# of Basic Operations Performed", 
-      "Runtime (m/s)", "Sorted File Name" 
+      "Runtime (ms)", "Sorted File Name" 
    };
 
    // column widths
