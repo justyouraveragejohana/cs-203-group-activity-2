@@ -1,54 +1,35 @@
 package algorithms.search;
 
-import java.util.Arrays;
-
 public class binary_search {
 
-    public double durationInMillis = 0;
-    private static long basicOpCount = 0;
+    // basic operation count (comparing k with A[middle])
+    // the slides count the ==, <, and > check as one comparison so thats counted once per middle
+    public static long basicOpCount = 0;
 
-    public int binarySearch(int[] arr, int target) {
-        basicOpCount = 0;
-        if (!isSorted(arr)) {
-            Arrays.sort(arr);
-        }
+    // loop version
+    public static int BinarySearchLoop (int[] A, int k) {
 
-        int low = 0;
-        int high = arr.length - 1;
-        long startTime = System.nanoTime();
-        int result = -1;
+        // left and right are ends of the part we are searching
+        int left = 0;
+        int middle = 0;
+        int right = A.length - 1;
 
-        while (low <= high) {
-            // Prevents potential integer overflow compared to (low + high) / 2
-            int mid = low + (high - low) / 2;
-            basicOpCount++;
-
-            if (arr[mid] == target) {
-                result = mid;
-                break;
-            } else if (arr[mid] < target) {
-                low = mid + 1; // Search the right half
-            } else {
-                high = mid - 1; // Search the left half
+        // keep going until theres nothing left to search
+        while (left <= right) {
+            middle = (int) Math.floor((left + right) / 2); // finds middle spot
+            count++; // counting basic operation (comparison with A[middle])
+            if (k == A[middle]) {
+                return middle; 
+            }
+            else if (k < A[middle]) {
+                right = middle - 1; // number is smaller so search the left half
+            }
+            else {
+                left = middle + 1; // number is bigger so search the right half
             }
         }
+        return -1; // number isn't in the array
 
-        long endTime = System.nanoTime();
-        this.durationInMillis = (endTime - startTime) / 1_000_000.0;
-        return result;
     }
-
-    private boolean isSorted(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[i - 1]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /** Returns the number of binary-search comparisons from the most recent call. */
-    public static long getBasicOpCount() {
-        return basicOpCount;
-    }
+    
 }
