@@ -12,6 +12,8 @@ import algorithms.sort.selection_sort;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import data.excel.excel_data;
+
 // Prompts for and runs a sorting or searching algorithm. 
 final class AlgorithmSelector {
     private AlgorithmSelector() {
@@ -134,5 +136,18 @@ final class AlgorithmSelector {
 
         SearchReporter.reportSearch(
                 algorithmName, target, index, durationInMillis, basicOperations);
+        
+        // checking if the number was found so we knoe what to put in the position column
+        String position;
+        if (index >= 0) {
+            position = String.valueOf(index);
+        } else {
+            position = "Not Found";
+        }
+
+        // save this run to excel
+        // sorted output not made yet so save as N/A for now
+        excel_data.saveRun(originalNumbers.length, "Search", algorithmName, 
+        NumberFileInput.filePath, position, basicOperations, durationInMillis, "N/A");
     }
 }
