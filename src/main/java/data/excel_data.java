@@ -66,7 +66,7 @@ public class excel_data {
          setNumber(row, 7, runtime, style);
          setText(row, 8, sortedFile, style);
 
-         //save file, this writes over the old file with only the new row added
+         //save file again with all the old rows plus the new one
          FileOutputStream out = new FileOutputStream(file);
          workbook.write(out);
          out.close();
