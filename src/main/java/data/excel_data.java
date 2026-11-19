@@ -11,8 +11,8 @@ import org.apache.poi.xssf.usermodel.*;
 // saves the resutls of each run as a new row in an excel file
 public class excel_data {
 
-   // save just the file name and not the complete path so it works on any computer
-   // maybe lets change it to be saved in our downloads folder??
+   // finds the persons downloads folder and save the excel there
+   public static final String FOLDER = System.getProperty("user.home") + File.separator + "Downloads";
    public static final String FILE_NAME = "algorithm-results.xslx";
 
    // column names for the header row
@@ -33,7 +33,7 @@ public class excel_data {
       try {
          XSSFWorkbook workbook;
          XSSFSheet sheet;
-         File file = new File(FILE_NAME);
+         File file = new File(FOLDER, FILE_NAME); // the excel lives inside users downloads folder
 
          // checking if the file already exists
          if (file.exists()) {
@@ -72,7 +72,7 @@ public class excel_data {
          out.close();
          workbook.close();
 
-         System.out.println("Run " + rowNum + " saved to " + FILE_NAME);
+         System.out.println("Run " + rowNum + " saved to " + file.getAbsolutePath());
       } catch (IOException e) {
          // usually happens if the excel file is open while the program is running
          System.out.println("Could not save to " + FILE_NAME + ", close the Excel file and try again.");

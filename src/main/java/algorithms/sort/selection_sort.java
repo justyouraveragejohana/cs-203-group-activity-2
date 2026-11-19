@@ -26,16 +26,14 @@ public class selection_sort {
                 if (A[j] < A[min]) {
                     min = j;
                 }
-                
-                // swap the smallest number/partition into current spot
-                temp = A[i];
-                A[i] = A[min];
-                A[min] = temp;
             }
+            // swap the smallest number/partition into current spot
+            temp = A[i];
+            A[i] = A[min];
+            A[min] = temp;
 
         }
         long endTime = System.nanoTime();
         this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
-    
 }
