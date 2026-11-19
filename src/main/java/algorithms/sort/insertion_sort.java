@@ -14,7 +14,7 @@ public class insertion_sort {
         int j = 0; // index walks backward through sorted portion of array
 
         //start at the 2nd number since one number by itself is already sorted
-        for (int i = 0; i < A.length; i++) {
+        for (int i = 1; i < A.length; i++) {
             val = A[i]; // save the current value
             j = i-1; // start checking from the number before it
 
@@ -24,13 +24,14 @@ public class insertion_sort {
                 if (A[j] <= val) {
                     break;
                 }
+
                 A[j+1] = A[j]; // shift the larger number to the right
                 j = j-1; // move one spot to the left and check again
             }
+
             A[j+1] = val; // put the number in the open spot
         }
         long endTime = System.nanoTime();
         this.durationInMillis = (endTime - startTime) / 1_000_000.0;
     }
-    
 }

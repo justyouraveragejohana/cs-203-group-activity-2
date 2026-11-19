@@ -17,7 +17,7 @@ final class AlgorithmSelector {
     private AlgorithmSelector() {
     }
 
-    // Runs the selected algorithm using the supplied numbers as the source data. */
+    // Runs the selected algorithm using the supplied numbers as the source data.
     static void run(int[] originalNumbers, Scanner scanner) {
         System.out.println("Choose an algorithm:");
         System.out.println("1. Bubble sort");
@@ -47,7 +47,7 @@ final class AlgorithmSelector {
         }
     }
 
-    // Reads the target and runs the selected search algorithm. */
+    // Reads the target and runs the selected search algorithm.
     private static void runSelectedSearch(
             int[] originalNumbers, Scanner scanner, boolean useBinarySearch) {
         System.out.print("Enter the number to search for: ");
@@ -115,10 +115,13 @@ final class AlgorithmSelector {
         String algorithmName;
 
         if (useBinarySearch) {
+            // binary search only works on sorted array, so sort copy first
+            // sort isn't counted or timed, only the search is
+            Arrays.sort(algorithmInput);
             binary_search searcher = new binary_search();
             index = searcher.binarySearch(algorithmInput, target);
             durationInMillis = searcher.durationInMillis;
-            basicOperations = binary_search.getBasicOpCount();
+            basicOperations = binary_search.basicOpCount;
             algorithmName = "Binary search";
             System.out.println("Binary search sorts its copy before searching.");
         } else {
