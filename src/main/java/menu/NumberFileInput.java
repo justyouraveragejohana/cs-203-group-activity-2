@@ -8,7 +8,7 @@ import java.util.Scanner;
 import data.reader.NumberFileReader;
 import data.generator.RandomNumberFileGenerator;
 
-/* Prompts for either a generated numbers file or an existing file. */
+/* Prompts for either a generated input file or an existing file. */
 final class NumberFileInput {
     // name of the input file so it can be saved in the excel sheet
     static String filePath = "";
@@ -26,7 +26,7 @@ final class NumberFileInput {
         Path file;
         if (sourceChoice == 1) {
             file = generateNumbersFile(scanner);
-            System.out.println("Generated numbers file: " + file);
+            System.out.println("Generated input file: " + file);
         } else {
             file = askForExistingFile(scanner);
         } 
@@ -43,7 +43,7 @@ final class NumberFileInput {
 
         // keep asking until we get a file name that works
         while (true) {
-            System.out.print("Enter an intput file name (no need to add .txt to the end): ");
+            System.out.print("Enter an input file name (no need to add .txt to the end): ");
 
             try {
                 return RandomNumberFileGenerator.generateFile(size, scanner.nextLine().trim());
@@ -73,7 +73,7 @@ final class NumberFileInput {
                 NumberFileReader.readNumbers(file);
                 return file;
             } catch (NoSuchFileException e) {
-                System.out.println("Could not find that file, make sure it's in you downloads folder and try again.");
+                System.out.println("Could not find that file, make sure it's in your downloads folder and try again.");
             } catch (IOException | IllegalArgumentException e) {
                 // file is there but something is wrong with it
                 System.out.println("Could not use that file: " + e.getMessage());
