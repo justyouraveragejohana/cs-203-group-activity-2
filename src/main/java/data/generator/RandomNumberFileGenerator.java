@@ -63,10 +63,14 @@ public class RandomNumberFileGenerator {
             for (int i = 0; i < size; i++) {
                 int number = ThreadLocalRandom.current().nextInt(MAX_RANDOM_NUMBER + 1);
                 writer.write(Integer.toString(number));
-                writer.newLine();
-            }
-        }
 
+                // putting a space between numbers so they all go one line
+                if (i < size - 1) {
+                    writer.write(" ");
+                }
+            }
+            writer.newLine();
+        }
         return outputFile.toAbsolutePath();
     }
 }

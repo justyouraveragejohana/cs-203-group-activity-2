@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class AlgorithmRunner {
     /** Starts the interactive program. */
     public static void main(String[] args) {
+        // stops POI from printing this: Log4j could not find a logging provider
+        System.setProperty("log4j2.loggerContextFactory", 
+        "org.apache.logging.log4j.simple.SimpleLoggerContextFactory");
+        
         try (Scanner scanner = new Scanner(System.in)) {
             int[] numbers;
             try {
