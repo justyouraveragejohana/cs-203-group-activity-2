@@ -19,12 +19,12 @@ public class excel_data {
    // column names for the header row
    private static final String[] HEADERS = {
       "Run", "Input Size", "Sort or Search", "Algorithm", "Input File Name", 
-      "Position of k (Search Only)", "# of Basic Operations Performed", 
+      "Position of k (Search Only)", "Basic Ops Count", 
       "Runtime (ms)", "Sorted File Name" 
    };
 
    // column widths
-   private static final double[] WIDTHS = {5, 10, 13, 18, 18, 25, 26, 13.50, 18};
+   private static final double[] WIDTHS = {5, 10, 13, 18, 18, 25, 16, 13.50, 18};
 
    // adds run to excel file
    // positionOfK is "N/A" for sorting runs
@@ -64,7 +64,7 @@ public class excel_data {
          setText(row, 2, sortOrSearch, style);
          setText(row, 3, alg, style);
          setLink(workbook, row, 4, inputFile, style, linkStyle);
-         setText(row, 5, positionOfK, style);
+         setNumberOrText(row, 5, positionOfK, style);
          setNumber(row, 6, basicOps, style);
          setNumber(row, 7, runtime, style);
          setLink(workbook, row, 8, sortedFile, style, linkStyle);
@@ -151,6 +151,18 @@ public class excel_data {
       XSSFCell cell = row.createCell(col);
       cell.setCellValue(value);
       cell.setCellStyle(style);
+   }
+
+   // puts a number or words in the cell so excel doesnt show warning
+   private static void setNumberOrText(XSSFRow row, int col, String value, XSSFCellStyle style) {
+      try {
+         // checking if the value is a number
+         int num = Integer.parseInt(value);
+         setNumber(row, col, num, style);
+      } catch (NumberFormatException e) {
+         // if it's not a number, save it as words
+         setText(row, col, value, style);
+      }
    }
 
    // shows file name in a cell and makes it a link that opens the file
