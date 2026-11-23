@@ -137,6 +137,6 @@ final class AlgorithmSelector {
         // save this run to excel
         // sorted output not made yet so save as N/A for now
         excel_data.saveRun(originalNumbers.length, "Search", algorithmName, 
-        NumberFileInput.filePath, position, basicOperations, durationInMillis, "N/A");
+        NumberFileInput.filePath, String.valueOf(target), position, basicOperations, durationInMillis, "N/A");
     }
 }
