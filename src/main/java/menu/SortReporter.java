@@ -27,8 +27,8 @@ final class SortReporter {
         // save this run to excel
         // position of k is N/A since this is a sort
         // we have to save the sorted output but it's N/A for now
-        excel_data.saveRun(originalNumbers.length, "Sort", name, 
-        NumberFileInput.filePath, "N/A", basicOps, durationInMillis, "N/A");
+        excel_data.saveRun(originalNumbers.length, "Sort", name, NumberFileInput.filePath, "N/A", 
+        "N/A", basicOps, durationInMillis, "N/A");
 
     }
 }

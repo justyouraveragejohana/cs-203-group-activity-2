@@ -19,18 +19,17 @@ public class excel_data {
    // column names for the header row
    private static final String[] HEADERS = {
       "Run", "Input Size", "Sort or Search", "Algorithm", "Input File Name", 
-      "Position of k (Search Only)", "Basic Ops Count", 
-      "Runtime (ms)", "Sorted File Name" 
+      "Searched Number (k)", "Position of k", "Basic Ops Count", "Runtime (ms)", "Sorted File Name" 
    };
 
    // column widths
-   private static final double[] WIDTHS = {5, 10, 13, 18, 18, 25, 16, 13.50, 18};
+   private static final int[] WIDTHS = {6, 11, 14, 19, 19, 20, 13, 17, 15, 19};
 
    // adds run to excel file
-   // positionOfK is "N/A" for sorting runs
+   // searchedNumber and positionOfK are "N/A" for sorting runs
    // input and sorted file are the full paths to the files so they are clickable links
    public static void saveRun (int inputSize, String sortOrSearch, String alg, 
-                              String inputFile, String positionOfK, long basicOps, 
+                              String inputFile, String searchedNumber, String positionOfK, long basicOps, 
                               double runtime, String sortedFile) {
       try {
          XSSFWorkbook workbook;
@@ -64,10 +63,11 @@ public class excel_data {
          setText(row, 2, sortOrSearch, style);
          setText(row, 3, alg, style);
          setLink(workbook, row, 4, inputFile, style, linkStyle);
-         setNumberOrText(row, 5, positionOfK, style);
-         setNumber(row, 6, basicOps, style);
-         setNumber(row, 7, runtime, style);
-         setLink(workbook, row, 8, sortedFile, style, linkStyle);
+         setNumberOrText(row, 5, searchedNumber, style);
+         setNumberOrText(row, 6, positionOfK, style);
+         setNumber(row, 7, basicOps, style);
+         setNumber(row, 8, runtime, style);
+         setLink(workbook, row, 9, sortedFile, style, linkStyle);
 
          //save file again with all the old rows plus the new one
          FileOutputStream out = new FileOutputStream(file);
