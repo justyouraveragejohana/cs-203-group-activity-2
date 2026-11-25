@@ -21,7 +21,7 @@ final class NumberFileInput {
         System.out.println("Choose an input file:");
         System.out.println("1. Generate a random numbered input file");
         System.out.println("2. Use an existing input file");
-        int sourceChoice = menu_input.readNumber(scanner, "Enter a choice (1-2): ", 1, 2);
+        int sourceChoice = MenuInput.readNumber(scanner, "Enter a choice (1-2): ", 1, 2);
 
         Path file;
         if (sourceChoice == 1) {
@@ -39,7 +39,7 @@ final class NumberFileInput {
 
     /* Prompts for the output file size and name, then creates the file. */
     private static Path generateNumbersFile(Scanner scanner) throws IOException {
-        int size = menu_input.readNumber(scanner, "Enter the number of random integers to generate (0-1,000,000): ", 0, 1_000_000);
+        int size = MenuInput.readNumber(scanner, "Enter the number of random integers to generate (0-1,000,000): ", 0, 1_000_000);
 
         // keep asking until we get a file name that works
         while (true) {

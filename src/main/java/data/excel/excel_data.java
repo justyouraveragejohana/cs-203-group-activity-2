@@ -23,7 +23,7 @@ public class excel_data {
    };
 
    // column widths
-   private static final int[] WIDTHS = {6, 11, 14, 19, 19, 20, 13, 17, 15, 19};
+   private static final int[] WIDTHS = {6, 11, 14, 19, 19, 20, 13, 17, 15, 28};
 
    // adds run to excel file
    // searchedNumber and positionOfK are "N/A" for sorting runs
