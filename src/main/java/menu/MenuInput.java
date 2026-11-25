@@ -3,8 +3,8 @@ package menu;
 import java.util.Scanner;
 
 // reads numbers form the user and keeps asking if they type something wrong so a type won't close the whole program
-public class menu_input {
-    private menu_input() {
+public class MenuInput {
+    private MenuInput() {
     }
 
     // keeps asking the question until the user types a whole number from declared min to max
