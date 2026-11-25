@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomNumberFileGenerator {
     private static final int MAX_SIZE = 1_000_000;
     // nextInt uses an exclusive upper bound, so this generates values from 0 through 10.
-    private static final int MAX_RANDOM_NUMBER = 10;
+    private static final int MAX_RANDOM_NUMBER = 1000;
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
